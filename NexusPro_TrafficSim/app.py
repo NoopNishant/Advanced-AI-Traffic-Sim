@@ -73,14 +73,20 @@ inject_custom_css()
 # INITIALIZATION
 # ─────────────────────────────────────────────
 if 'sim_started' not in st.session_state:
-    # Need to pass correct path relative to app.py
     try:
         init_sim(config_path="config/sim.sumocfg")
+        st.session_state.sim_started = True
+        st.session_state.fog = False
+        st.session_state.play = True
     except Exception as e:
         st.error(f"Failed to initialize simulation: {e}")
-    st.session_state.sim_started = True
-    st.session_state.fog = False
-    st.session_state.play = True
+        st.session_state.sim_started = False
+        st.session_state.play = False
+        st.stop() # Stop execution so user can see the error
+
+if not st.session_state.get('sim_started', False):
+    st.error("Simulation failed to start. Check the logs.")
+    st.stop()
 
 # ─────────────────────────────────────────────
 # SIDEBAR CONTROLS
