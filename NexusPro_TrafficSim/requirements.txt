@@ -8,3 +8,4 @@ ultralytics
 numpy
 Pillow
 traci
+eclipse-sumo
