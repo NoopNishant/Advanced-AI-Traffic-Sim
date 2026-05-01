@@ -1,2 +1,5 @@
 sumo
 sumo-tools
+libsdl2-dev
+libfreetype6-dev
+pkg-config
