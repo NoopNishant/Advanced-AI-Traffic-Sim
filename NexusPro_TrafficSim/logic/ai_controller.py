@@ -397,8 +397,6 @@ def render_ui(screen, alerts):
         warn_txt = UI_FONT.render("WARNING: LOW VISIBILITY (SENSORS DEGRADED)", True, (255, 50, 50))
         screen.blit(warn_txt, (400 - warn_txt.get_width()//2, 100))
 
-    pygame.display.flip()
-
 # ─────────────────────────────────────────────
 #  HEADLESS STREAMLIT INTEGRATION
 # ─────────────────────────────────────────────
@@ -455,9 +453,6 @@ def step_sim():
     global _last_cv_trigger, _vision_msg_timer
 
     if not _sim_initialized:
-        return None
-
-    if traci.simulation.getMinExpectedNumber() <= 0:
         return None
 
     traci.simulationStep()
