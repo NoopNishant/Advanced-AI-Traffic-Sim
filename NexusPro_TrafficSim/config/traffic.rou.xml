@@ -1,0 +1,23 @@
+<routes>
+    <vType id="pedestrian" vClass="pedestrian" color="255,200,0"/>
+    <vType id="auto_rickshaw" accel="1.2" decel="4.5" length="2.5" maxSpeed="15" impatience="0.9" minGap="2.5" tau="1.0"/>
+    <vType id="bike" accel="2.5" decel="5.0" length="1.8" maxSpeed="20" impatience="1.0" latAlignment="arbitrary" minGap="1.5" tau="1.0"/>
+    <vType id="ambulance" accel="3.0" decel="6.0" length="5.0" maxSpeed="30" vClass="emergency" minGap="2.5" tau="1.0"/>
+    <vType id="truck" accel="0.8" decel="3.0" length="8.0" maxSpeed="15" vClass="truck" minGap="3.0" tau="1.0"/>
+
+    <flow id="n_to_s" type="auto_rickshaw" begin="0" end="3600" probability="0.08" from="-E4" to="E6"/>
+    <flow id="n_to_e" type="bike" begin="0" end="3600" probability="0.04" from="-E4" to="E5"/>
+    
+    <flow id="s_to_n" type="auto_rickshaw" begin="0" end="3600" probability="0.08" from="-E6" to="E4"/>
+    <flow id="s_to_w" type="bike" begin="0" end="3600" probability="0.04" from="-E6" to="E7"/>
+
+    <flow id="e_to_w" type="auto_rickshaw" begin="0" end="3600" probability="0.08" from="-E5" to="E7"/>
+    <flow id="e_to_s" type="bike" begin="0" end="3600" probability="0.04" from="-E5" to="E6"/>
+
+    <flow id="w_to_e" type="auto_rickshaw" begin="0" end="3600" probability="0.08" from="-E7" to="E5"/>
+    <flow id="w_to_n" type="bike" begin="0" end="3600" probability="0.04" from="-E7" to="E4"/>
+
+    <flow id="amb_west" type="ambulance" begin="10" end="3600" probability="0.005" from="-E7" to="E5"/>
+    <flow id="amb_north" type="ambulance" begin="20" end="3600" probability="0.005" from="-E4" to="E6"/>
+    <flow id="amb_east" type="ambulance" begin="40" end="3600" probability="0.005" from="-E5" to="E7"/>
+</routes>
