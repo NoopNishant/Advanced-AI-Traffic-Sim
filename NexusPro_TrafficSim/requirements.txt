@@ -1,6 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision
 streamlit
 pygame
 opencv-python-headless
 ultralytics
 numpy
 Pillow
+traci
